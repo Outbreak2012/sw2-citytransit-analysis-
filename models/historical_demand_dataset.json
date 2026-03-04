@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "name": "CityTransit Historical Demand Dataset",
+    "version": "1.0.0",
+    "created_at": "2025-12-15T10:00:00Z",
+    "description": "Historical demand data for transit system analytics",
+    "records": 1000,
+    "features": 12,
+    "target": "demand"
+  },
+  "schema": {
+    "timestamp": "datetime",
+    "hour": "int (0-23)",
+    "day_of_week": "int (1-7, Monday=1)",
+    "month": "int (1-12)",
+    "is_weekend": "int (0-1)",
+    "is_holiday": "int (0-1)",
+    "temperature": "float (Celsius)",
+    "precipitation": "float (mm)",
+    "events_count": "int",
+    "route_id": "int",
+    "previous_demand": "float",
+    "rolling_mean": "float",
+    "demand": "int (target variable)"
+  },
+  "statistics": {
+    "demand": {
+      "min": 120,
+      "max": 1850,
+      "mean": 685.4,
+      "std": 312.8,
+      "median": 620
+    },
+    "peak_hours": [7, 8, 17, 18],
+    "avg_weekend_demand": 412.3,
+    "avg_weekday_demand": 753.6
+  },
+  "sample_data": [
+    {
+      "timestamp": "2025-12-15T07:00:00",
+      "hour": 7,
+      "day_of_week": 1,
+      "month": 12,
+      "is_weekend": 0,
+      "is_holiday": 0,
+      "temperature": 18.5,
+      "precipitation": 0.0,
+      "events_count": 0,
+      "route_id": 1,
+      "previous_demand": 580,
+      "rolling_mean": 612.5,
+      "demand": 945
+    },
+    {
+      "timestamp": "2025-12-15T08:00:00",
+      "hour": 8,
+      "day_of_week": 1,
+      "month": 12,
+      "is_weekend": 0,
+      "is_holiday": 0,
+      "temperature": 20.2,
+      "precipitation": 0.0,
+      "events_count": 0,
+      "route_id": 1,
+      "previous_demand": 945,
+      "rolling_mean": 678.3,
+      "demand": 1120
+    },
+    {
+      "timestamp": "2025-12-15T12:00:00",
+      "hour": 12,
+      "day_of_week": 1,
+      "month": 12,
+      "is_weekend": 0,
+      "is_holiday": 0,
+      "temperature": 24.5,
+      "precipitation": 0.0,
+      "events_count": 0,
+      "route_id": 1,
+      "previous_demand": 620,
+      "rolling_mean": 585.4,
+      "demand": 580
+    },
+    {
+      "timestamp": "2025-12-15T17:00:00",
+      "hour": 17,
+      "day_of_week": 1,
+      "month": 12,
+      "is_weekend": 0,
+      "is_holiday": 0,
+      "temperature": 22.3,
+      "precipitation": 0.0,
+      "events_count": 0,
+      "route_id": 1,
+      "previous_demand": 480,
+      "rolling_mean": 712.8,
+      "demand": 1350
+    },
+    {
+      "timestamp": "2025-12-15T18:00:00",
+      "hour": 18,
+      "day_of_week": 1,
+      "month": 12,
+      "is_weekend": 0,
+      "is_holiday": 0,
+      "temperature": 21.0,
+      "precipitation": 0.0,
+      "events_count": 0,
+      "route_id": 1,
+      "previous_demand": 1350,
+      "rolling_mean": 845.2,
+      "demand": 1180
+    },
+    {
+      "timestamp": "2025-12-20T10:00:00",
+      "hour": 10,
+      "day_of_week": 6,
+      "month": 12,
+      "is_weekend": 1,
+      "is_holiday": 0,
+      "temperature": 19.8,
+      "precipitation": 2.5,
+      "events_count": 1,
+      "route_id": 3,
+      "previous_demand": 320,
+      "rolling_mean": 385.6,
+      "demand": 425
+    },
+    {
+      "timestamp": "2025-12-25T14:00:00",
+      "hour": 14,
+      "day_of_week": 4,
+      "month": 12,
+      "is_weekend": 0,
+      "is_holiday": 1,
+      "temperature": 23.4,
+      "precipitation": 0.0,
+      "events_count": 2,
+      "route_id": 5,
+      "previous_demand": 280,
+      "rolling_mean": 312.4,
+      "demand": 245
+    }
+  ],
+  "routes": [
+    {"route_id": 1, "name": "Centro - Terminal Norte", "avg_daily_demand": 8500},
+    {"route_id": 2, "name": "Universidad - Centro", "avg_daily_demand": 7200},
+    {"route_id": 3, "name": "Aeropuerto - Centro", "avg_daily_demand": 4500},
+    {"route_id": 4, "name": "Terminal Sur - Centro", "avg_daily_demand": 6800},
+    {"route_id": 5, "name": "Centro Comercial - Residencial", "avg_daily_demand": 5200}
+  ],
+  "data_sources": {
+    "clickhouse": "transaction_records table",
+    "mongodb": "user_feedback collection",
+    "redis": "real-time cache"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "sequence_length": 24,
+  "features": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "temperature",
+    "precipitation",
+    "events_count",
+    "previous_demand",
+    "rolling_mean"
+  ],
+  "is_fitted": true,
+  "evaluation_metrics": {
+    "rmse": 25.1648,
+    "mae": 18.7931,
+    "mape": 23.0602,
+    "r2": 0.7963
+  },
+  "saved_at": "2026-01-30T19:27:45.896325",
+  "tensorflow_version": "2.18.0"
+}

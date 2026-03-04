@@ -1,0 +1,28 @@
+
+services: 
+  clickhouse: 
+    image: clickhouse/clickhouse-server:latest 
+    container_name: citytransit-clickhouse 
+    ports: 
+      - "8123:8123" 
+      - "9000:9000" 
+    environment: 
+      - CLICKHOUSE_DB=citytransit 
+      - CLICKHOUSE_USER=admin 
+      - CLICKHOUSE_PASSWORD=admin123 
+ 
+  mongodb: 
+    image: mongo:latest 
+    container_name: citytransit-mongodb 
+    ports: 
+      - "27017:27017" 
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=admin 
+      - MONGO_INITDB_ROOT_PASSWORD=admin123 
+      - MONGO_INITDB_DATABASE=citytransit 
+ 
+  redis: 
+    image: redis:alpine 
+    container_name: citytransit-redis 
+    ports: 
+      - "6379:6379"
